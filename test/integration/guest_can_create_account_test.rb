@@ -5,10 +5,10 @@ class GuestCanCreateAccountTest < ActionDispatch::IntegrationTest
     visit new_user_path
 
     fill_in "First Name", with: "Json"
-    fill_in "Last Name", with: "JOnes"
-    click_button "Create User"
+    fill_in "Last Name", with: "Jones"
+    click_button "Submit"
 
     assert page.has_content?("Welcome, Json!")
   end
-  
+
 end
