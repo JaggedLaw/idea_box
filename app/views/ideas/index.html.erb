@@ -5,6 +5,15 @@
     <title>Ideas Index</title>
   </head>
   <body>
-      <h2>Welcome, <%= @user %>!</h2>
+      <h2>Welcome, User!</h2>
+      <ul>
+        <% @ideas.each do |idea| %>
+        <li>
+          <%= idea.name %>
+          <%= link_to 'Show', idea %>
+        </li>
+        <% end %>
+      </ul>
+      <%= link_to 'Add New Idea', new_idea_path %>
   </body>
 </html>
