@@ -6,6 +6,7 @@ class GuestCanCreateAccountTest < ActionDispatch::IntegrationTest
 
     fill_in "First Name", with: "Json"
     fill_in "Last Name", with: "Jones"
+    fill_in "Password", with: "password"
     click_button "Submit"
 
     assert page.has_content?("Welcome, Json!")

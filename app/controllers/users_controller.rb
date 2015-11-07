@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  #fix hierarchy so that ideas controller is showing index of ideas, not user controller
+  require 'bcrypt'
+
   def new
     @user = User.new
   end
@@ -12,8 +15,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
   def user_params
-    params.require(:user).permit(:first_name, :last_name)
+    params.require(:user).permit(:first_name, :last_name, :password)
   end
 end

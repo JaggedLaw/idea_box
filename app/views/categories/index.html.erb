@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Category Index</title>
+  </head>
+  <body>
+      <h2>Welcome to Category Index</h2>
+      <% @categories.each do |category| %>
+      <li>
+        <strong><%= category.name %></strong>
+        <%= link_to "Edit", edit_category_path(@category) %>
+        <%= link_to "Delete",  %>
+      </li>
+      <% end %>
+  </body>
+</html>
