@@ -8,6 +8,6 @@ class AUserCanLoginTest < ActionDispatch::IntegrationTest
     fill_in "Username", with: "Edgar"
     fill_in "Password", with: "password"
     click_button "Login"
-    assert page.has_content? "Welcome Edgar"
+    assert page.has_content? "Welcome, Edgar!"
 end
 end

@@ -12,20 +12,18 @@ class IdeasController < ApplicationController
   end
 
   def create
-    @idea = Idea.new(idea_params)
     @user = User.find session[:user_id]
+    @idea = @user.ideas.new(idea_params)
+    @ideas = @user.ideas
     if @idea.save
       redirect_to user_ideas_path
     else
       #errors
     end
-    @ideas = @user.ideas
-      binding.pry
   end
 
   def show
     @idea = Idea.find(params[:id])
-
   end
 
   def edit
@@ -38,7 +36,7 @@ class IdeasController < ApplicationController
 
   flash.notice = "Idea '#{@idea.name}' Updated!"
 
-  redirect_to idea_path(@idea)
+  redirect_to user_idea_path(@idea)
   end
 
   def destroy
