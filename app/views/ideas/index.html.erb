@@ -6,7 +6,7 @@
   </head>
   <body>
 
-      <h2>Welcome, User!</h2>
+      <h2>Welcome, <%= @user.first_name %>!</h2>
       <ul>
         <% @ideas.each do |idea| %>
         <li>
@@ -15,9 +15,7 @@
         </li>
         <% end %>
       </ul>
-      <%= link_to 'Add New Idea', new_idea_path %>
-
-      <h2>Welcome, <%= @user.first_name %>!</h2>
+      <%= link_to 'Add New Idea', new_user_idea_path %>
 
   </body>
 </html>

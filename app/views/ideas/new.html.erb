@@ -5,7 +5,8 @@
     <title>New Idea</title>
   </head>
   <body>
-    <%= form_for(@idea) do |f| %>
+    <%= form_for(@idea, url: user_ideas_path(@user.id)) do |f| %>
+    
       <%= f.label :name %><br>
       <%= f.text_field :name %><br><br>
       <%= f.label :description %><br>

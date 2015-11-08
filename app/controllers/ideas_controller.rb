@@ -1,26 +1,31 @@
 class IdeasController < ApplicationController
 
   def index
-    @ideas = Idea.all
-    @user = User.find params[:user_id]
-
+    @user = User.find session[:user_id]
+    @ideas = @user.ideas
   end
 
   def new
+    current_user
+    @user = User.find session[:user_id]
     @idea = Idea.new
   end
 
   def create
     @idea = Idea.new(idea_params)
+    @user = User.find session[:user_id]
     if @idea.save
-      redirect_to ideas_path
+      redirect_to user_ideas_path
     else
       #errors
     end
+    @ideas = @user.ideas
+      binding.pry
   end
 
   def show
     @idea = Idea.find(params[:id])
+
   end
 
   def edit
