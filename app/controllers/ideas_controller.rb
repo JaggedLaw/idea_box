@@ -43,7 +43,9 @@ class IdeasController < ApplicationController
   end
 
   def destroy
-    Idea.destroy(params[:id])
+    @user = User.find session[:user_id]
+    @idea = @user.ideas.find(params[:user_id])
+    @idea.destroy
     redirect_to user_ideas_path
   end
 
