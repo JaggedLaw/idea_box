@@ -23,20 +23,23 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
+    @user = User.find session[:user_id]
+    @idea = @user.ideas.find(params[:user_id])
   end
 
   def edit
-    @idea = Idea.find(params[:id])
+    @user = User.find session[:user_id]
+    @idea = @user.ideas.find(params[:user_id])
   end
 
   def update
-  @idea = Idea.find(params[:id])
-  @idea.update(idea_params)
+    @user = User.find session[:user_id]
+    @idea = @user.ideas.find(params[:user_id])
+    @idea.update(idea_params)
 
-  flash.notice = "Idea '#{@idea.name}' Updated!"
+    flash.notice = "Idea '#{@idea.name}' Updated!"
 
-  redirect_to user_idea_path(@idea)
+    redirect_to user_idea_path
   end
 
   def destroy

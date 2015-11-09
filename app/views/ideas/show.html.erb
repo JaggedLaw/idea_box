@@ -9,7 +9,6 @@
     <p>
       <%= @idea.description %><br>
     </p>
-    <%= link_to 'Edit', edit_idea_path(@idea) %>
-    <%= link_to 'Delete', @idea, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Edit', edit_user_idea_path(@idea, @user.id) %>
   </body>
 </html>
