@@ -23,7 +23,9 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea = Idea.find(params[:id])
+    @user = User.find session[:user_id]
+
+    @idea = @user.ideas.find(params[:user_id])
   end
 
   def edit

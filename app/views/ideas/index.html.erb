@@ -11,7 +11,7 @@
         <% @ideas.each do |idea| %>
         <li>
           <%= idea.name %>
-          <%= link_to 'Show', user_idea_path(idea, @user) %>
+          <%= link_to 'Show', user_idea_path(idea, @user.id) %>
         </li>
         <% end %>
       </ul>
