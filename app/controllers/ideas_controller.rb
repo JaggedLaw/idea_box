@@ -24,12 +24,12 @@ class IdeasController < ApplicationController
 
   def show
     @user = User.find session[:user_id]
-
     @idea = @user.ideas.find(params[:user_id])
   end
 
   def edit
-    @idea = Idea.find(params[:id])
+    @user = User.find session[:user_id]
+    @idea = @user.ideas.find(params[:user_id])
   end
 
   def update
