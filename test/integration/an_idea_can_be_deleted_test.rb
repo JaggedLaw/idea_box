@@ -13,6 +13,5 @@ class AnIdeaCanBeDeletedTest < ActionDispatch::IntegrationTest
     click_link "Show"
     click_link "Delete"
     refute page.has_content? "Greatest Idea!"
-    refute page.has_content? "This is the greatest idea ever thought up!!"
   end
 end
