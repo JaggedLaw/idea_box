@@ -5,7 +5,7 @@
     <title>Edit Idea</title>
   </head>
   <body>
-    <%= form_for(@idea, url: user_ideas_path(@user.id)) do |f| %>
+    <%= form_for(@idea, url: user_idea_path(@idea, @user.id)) do |f| %>
 
       <%= f.label :name %><br>
       <%= f.text_field :name %><br><br>
